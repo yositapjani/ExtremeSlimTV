@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Edit this file to customise the home screen, then run ./build_and_install.sh -->
+<resources>
+    <!-- Dock apps, left to right. Package names; missing or disabled apps are skipped. -->
+    <string-array name="dock_packages">
+        <item>com.vidio.android.tv</item>
+        <item>com.netflix.ninja</item>
+        <item>org.jellyfin.androidtv</item>
+        <item>org.smarttube.stable</item>
+        <item>com.android.tv.settings</item>
+    </string-array>
+
+    <!-- Apps never shown in the grid. -->
+    <string-array name="hidden_packages">
+        <item>com.google.android.tvlauncher</item>
+        <item>com.android.tv.settings</item>
+        <item>com.mitv.dream</item>
+        <item>com.android.gallery3d</item>
+    </string-array>
+
+    <!-- Name in the greeting ("Good evening, Sam"). Leave empty for no name. -->
+    <string name="greeting_name"></string>
+
+    <!-- Wallpaper: put an image at res/drawable-nodpi/wallpaper.jpg (or .png) and set this to true.
+         false = pitch black. -->
+    <bool name="use_wallpaper">false</bool>
+</resources>

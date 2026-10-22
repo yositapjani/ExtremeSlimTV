@@ -1,0 +1,82 @@
+# Mi TV Stick FHD (MDZ-24-AA) - model MiTV-AESP0, codename aquaman, 1 GB RAM
+# Android TV 9 (SDK 28), firmware PI.2055 stock. Verified on an Indonesia-region
+# unit in daily use since 21 Oct 2026 (Netflix / Jellyfin / SmartTube / Vidio).
+#
+# Apply one package per line with:  adb shell pm disable-user --user 0 <package>
+# Undo with:                        adb shell pm enable <package>
+# Everything is DISABLED, never uninstalled - fully reversible, no root.
+# Comment out anything you want to keep; the groups marked OPTIONAL contain
+# packages another verified set deliberately keeps (firmware updates, Mi Cast,
+# voice/accessibility) - read the comments before applying those.
+#
+# The same list, in cleanyourtv format, was contributed upstream:
+# https://github.com/Gathin23/cleanyourtv/pull/828
+#
+# Xiaomi + Google telemetry
+com.miui.tv.analytics
+com.google.android.feedback
+com.google.android.tv.bugreportsender
+tv.alphonso.alphonso_eula                   # Alphonso automatic content recognition (viewing tracking)
+
+# PatchWall, content rows, sponsored rows
+com.mitv.tvhome.atv
+com.mitv.tvhome.michannel
+com.xm.webcontent
+com.google.android.tvrecommendations
+android.autoinstalls.config.xiaomi.mibox3   # Play auto-install of partner apps
+android.autoinstalls.config.xioami.mibox3   # same, misspelled duplicate (sic, "xioami")
+
+# Preloaded apps
+com.dazn
+com.nousguide.android.rbtv                  # Red Bull TV
+com.google.android.apps.tachyon             # Google Duo
+com.google.android.play.games
+com.tcl.browser
+
+# Xiaomi services (second set)
+mitv.service                                # MiTV service framework for the rows removed above
+com.mitv.download.service                   # PatchWall download service
+com.mitv.videoplayer                        # stock Mi video player; comment out if you use it
+com.xiaomi.android.tvsetup.partnercustomizer  # partner customisation that seeds partner apps at setup
+
+# Xiaomi services (second set, optional — the original set keeps these)
+com.xiaomi.mitv.updateservice               # firmware updates; re-enable to take an OTA
+com.mitv.milinkservice                      # Mi Cast receiver; re-enable to cast from a Xiaomi phone
+
+# Google TV plumbing this stick does not need (second set)
+com.google.android.tv                       # Live Channels; the stick has no tuner or HDMI input
+com.android.providers.tv                    # TV content provider (EPG/channel data)
+com.google.android.videos                   # Google Play Movies & TV
+com.google.android.youtube.tvmusic         # YouTube Music TV
+com.google.android.tungsten.setupwraith     # setup helper left over from first boot
+com.google.android.partnersetup
+com.google.android.onetimeinitializer
+com.android.onetimeinitializer
+
+# Accounts, backup and printing plumbing (second set; nothing on a TV uses these)
+com.android.providers.contacts
+com.android.providers.calendar
+com.google.android.syncadapters.contacts
+com.google.android.syncadapters.calendar
+com.google.android.backuptransport
+com.android.backupconfirm
+com.android.sharedstoragebackup
+com.android.wallpaperbackup
+com.android.printspooler
+com.android.companiondevicemanager
+com.android.settings.intelligence
+com.android.se                              # secure element; the stick has no NFC
+com.android.cts.ctsshim                     # CTS test shims, not user features
+com.android.cts.priv.ctsshim
+
+# Screensavers (second set; that stick runs always-on with its own home screen)
+com.google.android.backdrop
+com.android.dreams.basic
+com.mitv.dream
+
+# Voice, accessibility, phone remote (second set, optional)
+com.google.android.katniss                  # voice search; the voice stack barely works on this firmware
+com.google.android.speech.pumpkin
+com.google.android.tts                      # comment out if anything reads text aloud
+com.google.android.marvin.talkback          # accessibility; only disable if nobody uses TalkBack
+com.google.android.tv.remote.service        # phone-as-remote; the Bluetooth remote is unaffected
