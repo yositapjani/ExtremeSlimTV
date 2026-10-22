@@ -313,12 +313,12 @@ public class HomeActivity extends Activity {
         LinearLayout tl = new LinearLayout(this);
         tl.setOrientation(LinearLayout.VERTICAL);
         greeting = Ui.text(this, 400, 19, 0xB3FFFFFF);
-        greeting.setShadowLayer(dp(3), 0, dp(1), 0xA6000000);
+        greeting.setShadowLayer(dp(4), 0, dp(2), 0xCC000000);
         clock = Ui.text(this, 150, 94, 0xFFFFFFFF);
         clock.setLetterSpacing(-0.02f);
-        clock.setShadowLayer(dp(5), 0, dp(2), 0xA6000000);
+        clock.setShadowLayer(dp(6), 0, dp(2), 0xCC000000);
         date = Ui.text(this, 300, 20, 0xB3FFFFFF);
-        date.setShadowLayer(dp(3), 0, dp(1), 0xA6000000);
+        date.setShadowLayer(dp(4), 0, dp(2), 0xCC000000);
         tl.addView(greeting);
         LinearLayout.LayoutParams clp = new LinearLayout.LayoutParams(-2, -2);
         clp.topMargin = dp(4);
@@ -336,11 +336,9 @@ public class HomeActivity extends Activity {
         pills[0] = pill(R.drawable.ic_input, "Inputs");
         pills[0].setVisibility(View.GONE);
         pills[1] = pill(R.drawable.ic_wifi, null);
-        shadowize(pills[1]);
         pills[2] = pill(R.drawable.ic_settings, null);
         pills[2].setVisibility(View.GONE);
         btPill = pill(R.drawable.ic_bluetooth, null);
-        shadowize(btPill);
         btPill.setVisibility(View.GONE);
         pillRow.addView(pills[0], new LinearLayout.LayoutParams(-2, dp(36)));
         pillRow.addView(btPill, new LinearLayout.LayoutParams(-2, dp(36)));
@@ -358,7 +356,7 @@ public class HomeActivity extends Activity {
         // dock
         dockAdapter = new TileAdapter(dockCell, dockCardW, dockCardH, 0, false);
         dockRv = recycler(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false), dockAdapter);
-        content.addView(dockRv, at(dockCell * 5, dockCardH, (W - dockCell * 5) / 2,
+        content.addView(dockRv, at(dockCell * 6, dockCardH, (W - dockCell * 6) / 2,
                 bandTop + (bandH - dockCardH) / 2));
 
         // grid
@@ -418,18 +416,6 @@ public class HomeActivity extends Activity {
         return p;
     }
 
-    /** Soft drop shadow under an icon pill: a dark capsule peeking out at the bottom. */
-    private void shadowize(View p) {
-        GradientDrawable sh = new GradientDrawable();
-        sh.setShape(GradientDrawable.RECTANGLE);
-        sh.setCornerRadius(dp(18));
-        sh.setColor(0x59000000);
-        android.graphics.drawable.LayerDrawable ld = new android.graphics.drawable.LayerDrawable(
-                new android.graphics.drawable.Drawable[]{sh, p.getBackground()});
-        ld.setLayerInset(0, dp(2), dp(4), dp(2), 0);
-        ld.setLayerInset(1, 0, 0, 0, dp(3));
-        p.setBackground(ld);
-    }
 
     // ------------------------------------------------------------ bluetooth
 

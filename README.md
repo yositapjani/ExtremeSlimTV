@@ -14,9 +14,9 @@ Depok, Indonesia 🇮🇩.
 
 ![ExtremeSlimTV home screen](docs/images/home.png)
 
-*The home screen: aerial video backgrounds that rotate when each clip ends, a five-app dock
-(Vidio, Netflix, Jellyfin, SmartTube, Settings), big clock with a soft shadow, Wi-Fi and
-Bluetooth status pills. Nothing else.*
+*The home screen: aerial video backgrounds that rotate when each clip ends, a six-app dock
+(Vidio, Netflix, Jellyfin, SmartTube, AirScreen, Settings), big clock with a soft shadow,
+Wi-Fi and Bluetooth status pills. Nothing else.*
 
 ![The actual test unit — Mi TV Stick FHD and its remote](docs/images/device-mi-tv-stick-remote.jpg)
 
