@@ -23,6 +23,11 @@ Wi-Fi and Bluetooth status pills. Nothing else.*
 *The actual unit this was built and verified on: Mi TV Stick FHD (MDZ-24-AA) with the stock
 remote — whose Prime Video button now opens Jellyfin.*
 
+![Model label — MDZ-24-AA](docs/images/device-label.jpg)
+
+*The model label on the unit: MODEL MDZ-24-AA, FCC ID 2AIMRMITVMDZ24AA — check yours
+matches before you start.*
+
 ## What's inside
 
 | Part | What it does |
