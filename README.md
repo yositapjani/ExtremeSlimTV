@@ -18,6 +18,11 @@ Depok, Indonesia 🇮🇩.
 (Vidio, Netflix, Jellyfin, SmartTube, Settings), big clock with a soft shadow, Wi-Fi and
 Bluetooth status pills. Nothing else.*
 
+![The actual test unit — Mi TV Stick FHD and its remote](docs/images/device-mi-tv-stick-remote.jpg)
+
+*The actual unit this was built and verified on: Mi TV Stick FHD (MDZ-24-AA) with the stock
+remote — whose Prime Video button now opens Jellyfin.*
+
 ## What's inside
 
 | Part | What it does |

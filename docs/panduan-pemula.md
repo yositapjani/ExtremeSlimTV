@@ -29,6 +29,15 @@ Kalau di tengah jalan kamu berubah pikiran, ada bab "Cara Balikin Seperti Semula
 Kalau stick kamu beda tipe (misalnya yang 4K), bab mematikan aplikasi tetap bisa dipakai dengan
 hati-hati, tapi launcher-nya belum dites di sana.
 
+Ini dia stick-nya:
+
+![Mi TV Stick FHD dan remote bawaannya](images/device-mi-tv-stick-remote.jpg)
+
+Buat mastiin tipe stick kamu sama, cek label di badan stick — tulisannya harus
+**MODEL: MDZ-24-AA** kayak gini:
+
+![Label model di Mi TV Stick](images/device-label.jpg)
+
 **Waktu yang dibutuhkan:** sekitar 30–45 menit santai.
 
 ---
