@@ -240,15 +240,17 @@ Kalau TV kamu bukan OLED (LED/LCD biasa), fitur ini tidak merugikan apa-apa — 
 
 ## Cara Balikin Seperti Semula
 
-Semua yang kita lakukan bisa dibatalkan. Pilih sesuai kebutuhan:
+Semua yang kita lakukan bisa dibatalkan. Ada 4 tingkat — mulai dari yang paling ringan.
+Pakai tingkat seringan mungkin; factory reset itu pilihan terakhir.
 
-**Nyalakan lagi satu aplikasi yang tadi dimatikan:**
+### Tingkat 1 — Nyalakan lagi SATU aplikasi yang tadi dimatikan
+
 ```
 adb shell pm enable nama.paket.aplikasinya
 ```
 (lihat nama paketnya di file profil, atau di file backup `daftar-paket-saya.txt`)
 
-**Nyalakan lagi semuanya sekaligus:**
+### Tingkat 2 — Nyalakan lagi SEMUA aplikasi sekaligus
 
 Windows (PowerShell):
 ```powershell
@@ -259,12 +261,49 @@ Mac / Linux:
 grep -E '^[a-z]' mitv-aesp0-mi-tv-stick-fhd.txt | awk '{print $1}' | while read p; do ./adb shell pm enable $p; done
 ```
 
-**Kembali ke layar utama bawaan:** Pengaturan → Aplikasi → ATV Home → Copot pemasangan (uninstall).
-Layar utama Xiaomi akan kembali jadi yang utama. Atau: Pengaturan → Aplikasi → Semua aplikasi →
-pilih launcher bawaan → aktifkan lagi.
+### Tingkat 3 — Kembali ke layar utama bawaan Xiaomi
 
-**Jalan terakhir (reset total):** Pengaturan → Preferensi Perangkat → Reset → Reset ke setelan
-pabrik. Stick kembali persis seperti baru beli. (Semua akun harus login ulang ya.)
+Pengaturan → Aplikasi → **ATV Home** → Copot pemasangan (Uninstall).
+Layar utama bawaan Xiaomi otomatis jadi yang utama lagi.
+
+### Tingkat 4 — FACTORY RESET: stick kembali persis seperti baru beli
+
+Ini menghapus **semuanya**: akun Google, aplikasi yang kamu unduh/pasang (termasuk launcher
+baru dan Vidio hasil sideload), video latar, dan semua pengaturan. Aplikasi bawaan yang tadi
+dimatikan akan **aktif lagi otomatis**, dan Opsi Pengembang ikut mati. Setelah ini stick
+benar-benar seperti hari pertama keluar dari kardus.
+
+**Sebelum mulai, pahami dulu:**
+- Kamu harus **login ulang** akun Google (dan akun aplikasi lain: Netflix, Vidio, dll).
+- Siapkan password Wi-Fi — akan diminta lagi.
+- Tidak ada data pribadi penting di stick biasanya, tapi kalau ada aplikasi yang menyimpan
+  sesuatu lokal, itu ikut hilang.
+
+**Caranya, pelan-pelan pakai remote:**
+
+1. Tekan tombol **Home**, buka **Pengaturan** (ikon gerigi di pojok kanan atas).
+2. Pilih **Preferensi Perangkat** (Device Preferences).
+3. Gulir ke bawah, pilih **Reset**.
+4. Pilih **Reset ke setelan pabrik** (Factory data reset).
+5. TV akan menampilkan peringatan. Pilih **Reset ke setelan pabrik** sekali lagi,
+   lalu **Hapus semua** (Erase everything).
+6. Stick akan restart sendiri. Layar jadi hitam sebentar, lalu muncul logo Mi dan
+   layar penyiapan awal. **Jangan cabut listrik selama proses ini** (sekitar 3–10 menit).
+7. Ikuti penyiapan awal seperti waktu pertama membeli: pilih bahasa, sambungkan Wi-Fi,
+   login akun Google, selesai. Stick kamu sudah perawan lagi.
+
+**Kalau layar utama tidak bisa dibuka sama sekali** (misalnya stick berputar-putar di logo
+terus), factory reset masih bisa dipicu dari komputer selama ADB masih tersambung:
+
+```
+adb reboot recovery
+```
+
+Stick akan masuk ke menu *recovery* (layar hitam dengan tulisan kecil). Di sana pilih
+**Wipe data / factory reset** lalu **Yes**. Buat memilih di menu ini biasanya perlu keyboard
+USB (colok pakai kabel OTG, karena port stick cuma satu dan dipakai listrik — pakai OTG
+*cable* bercabang/Y supaya listrik tetap masuk). Setelah selesai pilih
+**Reboot system now**. Selesai, lanjutkan penyiapan awal seperti langkah 7 di atas.
 
 ---
 
