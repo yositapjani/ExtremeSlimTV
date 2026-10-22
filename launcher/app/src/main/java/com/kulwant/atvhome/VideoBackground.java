@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -75,6 +76,31 @@ public class VideoBackground extends TextureView implements TextureView.SurfaceT
         }
     }
 
+    /**
+     * Day/night aware pick: files whose name contains "-day" play 06:00-17:59,
+     * "-night" files play 18:00-05:59, files without either tag are wildcards.
+     * Falls back to the whole set when the current period has nothing else.
+     */
+    private int pickForNow(int exclude) {
+        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        boolean wantDay = hour >= 6 && hour < 18;
+        List<Integer> pool = new ArrayList<>();
+        for (int i = 0; i < sources.size(); i++) {
+            if (i == exclude) continue;
+            String name = sources.get(i).getLastPathSegment();
+            String n = name == null ? "" : name.toLowerCase();
+            boolean isDay = n.contains("-day");
+            boolean isNight = n.contains("-night");
+            if (!isDay && !isNight) pool.add(i);
+            else if (wantDay == isDay) pool.add(i);
+        }
+        if (pool.isEmpty()) {
+            for (int i = 0; i < sources.size(); i++) if (i != exclude) pool.add(i);
+        }
+        if (pool.isEmpty()) return exclude < 0 ? 0 : exclude;
+        return pool.get(random.nextInt(pool.size()));
+    }
+
     private void switchTo(int idx) {
         current = idx;
         animate().alpha(0f).setDuration(FADE_MS).withEndAction(() -> {
@@ -128,11 +154,10 @@ public class VideoBackground extends TextureView implements TextureView.SurfaceT
             mp.setLooping(false);
             mp.setVolume(0f, 0f);
             mp.setOnCompletionListener(p -> {
-                // a clip only changes once it has played to the end
+                // a clip only changes once it has played to the end,
+                // and the next one matches the time of day
                 if (sources.size() > 1) {
-                    int next = current;
-                    while (next == current) next = random.nextInt(sources.size());
-                    switchTo(next);
+                    switchTo(pickForNow(current));
                 } else {
                     try {
                         p.seekTo(0);
@@ -154,7 +179,7 @@ public class VideoBackground extends TextureView implements TextureView.SurfaceT
                 fail();
                 return true;
             });
-            current = random.nextInt(sources.size());
+            current = pickForNow(-1);
             mp.setDataSource(getContext(), sources.get(current));
             mp.prepareAsync();
         } catch (IOException | IllegalStateException | IllegalArgumentException e) {

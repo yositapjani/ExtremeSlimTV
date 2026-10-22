@@ -23,7 +23,7 @@ Bluetooth status pills. Nothing else.*
 | Part | What it does |
 |---|---|
 | [`profiles/`](profiles/) | The verified debloat list: **47 packages** disabled on firmware PI.2055, grouped and commented (telemetry, PatchWall rows, Xiaomi/Google plumbing, screensavers, optional voice/accessibility). Disable-only — `pm enable` undoes any line. |
-| [`launcher/`](launcher/) | A lean replacement home screen (see **OLED Care** below): video backgrounds, centred mini dock, status pills for Wi-Fi and Bluetooth audio (A2DP), large readable clock. |
+| [`launcher/`](launcher/) | A lean replacement home screen (see **OLED Care** below): aerial video backgrounds that follow the clock (day scenes 06:00–18:00, night scenes 18:00–06:00), centred mini dock, status pills for Wi-Fi and Bluetooth audio (A2DP), large readable clock. |
 | [`prime-watcher/`](prime-watcher/) | A tiny daemon that remaps the remote's **Prime Video button to Jellyfin**. The button has no keylayout entry, so no app can see it — the watcher catches it at kernel level via `getevent` over a persistent ADB session and re-finds the stick by MAC when DHCP moves it. |
 | [`docs/`](docs/) | The beginner guide (Indonesian, step by step), the debloat method, the OLED Care design, and why Vidio crashes from APKPure's single-APK download (and the XAPK fix). |
 
@@ -55,6 +55,26 @@ the firmware update service is in the optional group, disabled on the reference 
 
 The same list in [cleanyourtv](https://github.com/Gathin23/cleanyourtv) format was
 contributed upstream: [Gathin23/cleanyourtv#828](https://github.com/Gathin23/cleanyourtv/pull/828).
+
+## Before / after — measured, not estimated
+
+Same stick, same firmware, measured both ways on 22 Oct 2026 (`dumpsys meminfo` and
+`df` at the home screen, after settling). "Stock" was measured by temporarily
+re-enabling the whole profile, restoring the two removed apps and foregrounding the
+stock launcher — then re-applying everything and re-verifying (47/47 disabled).
+
+| | Stock (PI.2055) | ExtremeSlimTV | Delta |
+|---|---|---|---|
+| Packages disabled | 3 of 91 | **47 of 91** (+2 apps removed for the user) | 44 fewer things allowed to run |
+| Free RAM | 333 MB | **435 MB** | **+102 MB (+31%)** |
+| Used RAM (PSS) | 410 MB | **340 MB** | **−70 MB (−17%)** |
+| Running processes | 245 | **235** | −10 |
+| Free disk (/data, 4.8 GB) | 3.0 GB | 3.0 GB | unchanged — by design |
+
+The disk row deserves an honest note: this recipe is **disable-only**, so it frees
+almost no storage — nothing is deleted, which is exactly why everything is reversible.
+What it buys is *headroom*: ~100 MB more free RAM on a 1 GB stick, and the telemetry,
+content rows and partner plumbing simply never start.
 
 ## Tested on
 
