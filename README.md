@@ -78,6 +78,15 @@ clean launcher → restore path) follows the approach popularised by
 Android TV debloat wave. Everything else here — the AESP0 profile, OLED Care, the
 prime-watcher daemon, the Vidio finding — is original work from this project.
 
+## Disclaimer
+
+Provided as-is, based on one verified device, with no warranty of any kind. Modifying your
+stick always carries some risk — including, in the worst case, a bricked device if a step
+goes wrong or power is lost at the wrong moment. **You do this at your own risk; the author
+takes no responsibility for any damage to your device.** That said, everything here is
+disable-only and reversible, the guide starts with a backup, and the full undo path — up to
+a factory reset — is documented. Go slow, and don't skip the backup.
+
 ## Licence
 
 MIT — see [`LICENSE`](LICENSE).

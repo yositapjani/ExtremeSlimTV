@@ -33,6 +33,20 @@ hati-hati, tapi launcher-nya belum dites di sana.
 
 ---
 
+## ⚠️ Peringatan dulu ya (disclaimer)
+
+Panduan ini dibagikan **apa adanya**, dari pengalaman pribadi, tanpa garansi apa pun.
+Mengoprek selalu ada risikonya — termasuk risiko stick rusak total (istilahnya *brick*)
+kalau ada langkah yang salah atau listrik mati di tengah jalan.
+**Kalau itu terjadi, risikonya kamu tanggung sendiri — penulis tidak bertanggung jawab.**
+
+Kabar baiknya: semua langkah di panduan ini sifatnya *mematikan* aplikasi (bukan menghapus),
+sudah dites di perangkat beneran, dan ada bab backup serta cara balikin sampai factory reset.
+Kerjakan pelan-pelan, **jangan lewatkan Langkah 7 (backup)**, dan jangan mulai kalau kamu
+lagi buru-buru.
+
+---
+
 ## Yang kamu butuhkan
 
 - Mi TV Stick FHD + TV-nya, menyala normal.
@@ -337,5 +351,5 @@ semua langkah di atas sudah dibuktikan di perangkat beneran, bukan teori.
 Silakan dipakai, disalin, dan disebarluaskan. Kalau stick kamu jadi lebih kencang dan
 panduan ini menolong, itu sudah lebih dari cukup. 🙏
 
-*— Yosi (Bruce) Tapjani, Depok, Indonesia*
+*— Yosi Tapjani, Depok, Indonesia*
 *Repo: https://github.com/yositapjani/ExtremeSlimTV — lisensi MIT, pakai sebebasnya.*
