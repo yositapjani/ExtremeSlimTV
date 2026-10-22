@@ -7,6 +7,11 @@ A complete makeover of Xiaomi's Mi TV Stick FHD (MDZ-24-AA, model MiTV-AESP0, co
 uninstalled, everything reversible. Built and verified on a real unit in daily use in
 Depok, Indonesia 🇮🇩.
 
+> **Baru mulai / new here?** There is a complete beginner guide in plain Indonesian —
+> [docs/panduan-pemula.md](docs/panduan-pemula.md) — zero to done, step by step, undo included.
+> The launcher also ships as a prebuilt APK in
+> [Releases](https://github.com/yositapjani/ExtremeSlimTV/releases), no build needed.
+
 ![ExtremeSlimTV home screen](docs/images/home.png)
 
 *The home screen: aerial video backgrounds that rotate when each clip ends, a five-app dock
@@ -20,7 +25,7 @@ Bluetooth status pills. Nothing else.*
 | [`profiles/`](profiles/) | The verified debloat list: **47 packages** disabled on firmware PI.2055, grouped and commented (telemetry, PatchWall rows, Xiaomi/Google plumbing, screensavers, optional voice/accessibility). Disable-only — `pm enable` undoes any line. |
 | [`launcher/`](launcher/) | A lean replacement home screen (see **OLED Care** below): video backgrounds, centred mini dock, status pills for Wi-Fi and Bluetooth audio (A2DP), large readable clock. |
 | [`prime-watcher/`](prime-watcher/) | A tiny daemon that remaps the remote's **Prime Video button to Jellyfin**. The button has no keylayout entry, so no app can see it — the watcher catches it at kernel level via `getevent` over a persistent ADB session and re-finds the stick by MAC when DHCP moves it. |
-| [`docs/`](docs/) | Notes: the debloat method, the OLED Care design, and why Vidio crashes from APKPure's single-APK download (and the XAPK fix). |
+| [`docs/`](docs/) | The beginner guide (Indonesian, step by step), the debloat method, the OLED Care design, and why Vidio crashes from APKPure's single-APK download (and the XAPK fix). |
 
 ## OLED Care — the safety feature
 
