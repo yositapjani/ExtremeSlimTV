@@ -360,5 +360,5 @@ semua langkah di atas sudah dibuktikan di perangkat beneran, bukan teori.
 Silakan dipakai, disalin, dan disebarluaskan. Kalau stick kamu jadi lebih kencang dan
 panduan ini menolong, itu sudah lebih dari cukup. 🙏
 
-*— Yosi Tapjani, Depok, Indonesia*
+*— Depok, Indonesia*
 *Repo: https://github.com/yositapjani/ExtremeSlimTV — lisensi MIT, pakai sebebasnya.*
